@@ -178,7 +178,7 @@ function missScoring() {
 
 
 
-// Game Time Duration
+// Game Time Duration function
 
 function timeLimit(){
     let tm = setInterval(counting, 1000);
