@@ -95,7 +95,6 @@ function startGameEasy() {
     score = 0;
     easy();
     peep();
-    missScoring();
     timeLimit();
 }
 function startGameNor() {
@@ -138,42 +137,39 @@ function randomHole($holes) {
         return randomHole($holes);
     }
     lastHoleNum = randomHoleNum;
-    console.log(hole);
+    // console.log(hole);
     return hole;
 }
 
 // recive the random hole value, set random peep time 
 let time;
+let moleCheckArray =new Array(); //用于记录MISS增加的函数
+let currenMoleIndex =0;//记录生成地鼠的Index
 function peep() {
     time = randomTime(peepmin, peepmax);
     const hole = randomHole($holes);
     sum ++;
     console.log(sum);
+    hole.find('.mole').data("moleIndex",currenMoleIndex);
     hole.addClass('up');
-    // hole.children().addClass('missing');
     play_growl_sound();
     setTimeout(() => {  
+
         hole.removeClass('up');
         if(!timeUp) peep();
-        // hole.children().on('transitionstart', function(){
-        //     if(hole.children().hasClass('missing') && !timeUp){
-        //         miss++; 
-        //         $missBoard.text(miss);
-        //     }
-        //     hole.children().removeClass('missing')
-        // });
     }, time);
 
+    //MISS增加函数，如果在Bonk里面没有击中地鼠，就在time+1.8s秒后执行MISS+1s
+    moleCheckArray[currenMoleIndex] = setTimeout(()=>{
+
+            miss+=1;
+            $missBoard.text(miss);
+            
+
+    },time+1800);
+
+    currenMoleIndex++;
 }
-function missScoring() {
-    misstime = time + 3000; //3000 = transtion time 3s
-    setTimeout(() => {
-    miss = sum - score;
-    $missBoard.text(miss);
-    console.log(miss)
-    if(!timeUp) missScoring();
-    }, misstime);
-};
 
 
 
@@ -227,6 +223,9 @@ function bonk(e) {
     $(this).addClass('disabled'); //prevent double score
     $(this).css("background", "url(../images/demogorgon-dead.svg) bottom center no-repeat");
     $scoreBoard.text(score);
+    //成功打中地鼠，清除打中地鼠的miss增加函数。
+    clearTimeout(moleCheckArray[$(this).data("moleIndex")]);
+
 }
 // Listen for when the moles...are finished animating down...
 // ...If they have a disabled class...then remove it...
