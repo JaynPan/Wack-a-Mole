@@ -1,0 +1,204 @@
+.game-zone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(48, 48, 48, 0.5);
+    width: 800px;
+    height: auto;
+    padding: 50px;
+    margin: auto;
+    display: none;
+    border-radius: 20px;
+    cursor: url('../images/mallet.png'), pointer;
+
+    &.clicked {
+      cursor: url('../images/mallet-click.png'), pointer;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      h1 {
+        color: white;
+        font-family: 'Eater', cursive;
+        text-align: center;
+        font-size: 4rem;
+        line-height:1;
+        margin: 0;
+      } 
+    } 
+    .btn {
+      font-family: 'Eater', cursive;
+      font-size: 26px;
+      font-weight: 200;
+      text-decoration: none;
+      color: rgb(218, 52, 52);
+      background-color: white;
+      padding: 0px 20px;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+      .var {
+        padding:0 3rem;
+        line-height:1;
+        border-radius:1rem;
+      }
+      
+      .game {
+        width:600px;
+        height:600px;
+        display:flex;
+        flex-wrap:wrap;
+        margin:0 auto;
+      }
+      
+      .hole {
+        flex: 1 0 33.33%;
+        overflow: hidden;
+        position: relative;
+        margin-top: 10px;
+      }
+      
+      .hole:after {
+        display: block;
+        background: url(../images/dirt.svg) bottom center no-repeat;
+        background-size:contain;
+        content:'';
+        width: 100%;
+        height:70px;
+        position: absolute;
+        z-index: 2;
+        bottom:-30px;
+      }
+      
+      .mole {
+        background:url(../images/demogorgon.svg) bottom center no-repeat;
+        // background-size:65%;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 100%;
+        transition: top 3s;
+      }
+      
+      .hole.up .mole {
+        top:0;
+      }
+
+    // counting
+    #count {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 200px;
+      font-family: 'Eater', cursive;
+      color: white;
+      z-index: 999;
+    }  
+  }
+
+  // 
+  .disabled { pointer-events: none; }
+
+  .result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    background: url(../images/ele2-dark.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+    color: white;
+    padding: 50px;
+    display: none;
+    h1 {
+        color: white;
+        font-family: 'Eater', cursive;
+        font-weight: 200;
+        text-align: center;
+        font-size: 4rem;
+        line-height:2;
+        margin: 0;
+    }
+    p {
+      font-size: 40px;
+    }
+    h2 {
+      font-size: 40px;
+      color: white;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    hr {
+      border: 2px solid red;
+      background-color: red;
+      width: 20%;
+      margin-top: 50px;
+    }
+    .restart {
+      display: flex;
+      justify-content: center;
+      margin: 60px auto 50px;
+
+      a{
+        font-size: 24px;
+        font-family: arial;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 30px;
+        margin-right: 60px;
+        cursor: pointer;
+      }
+      #quit {
+        margin-right: 0;
+      }
+  }
+  
+}
+.chooseLevel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  background-color: black;
+  margin: auto;
+  display: none;
+  h1 {
+    color: white;
+    font-family: 'Eater', cursive;
+    font-weight: 200;
+    text-align: center;
+    font-size: 4rem;
+    line-height:2;
+    margin: 0;
+  }
+  .level-btn {
+    width: 100%;
+    margin: 50px auto;
+    text-align: center;
+  }
+  a{
+    font-size: 24px;
+    font-family: arial;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 30px;
+    margin-right: 60px;
+    cursor: pointer;
+  }
+  a:last-child {
+    margin-right: 0;
+  }
+}

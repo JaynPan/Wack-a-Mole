@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Eater" rel="stylesheet">
+    <title>Stanger Things</title>
+</head>
+
+<!-- game sounds effect -->
+<audio autoplay id="bg-music">
+    <source src="./audio/TEEEL - Stranger Things Theme Cover.mp3" type="audio/mpeg">
+</audio>
+<audio id="growl" src="./audio/demogorgan (1s).mp3" preload="auto"></audio>
+<audio id="cheer" src="./audio/Cheer Sound Effect (6s).mp3" preload="auto"></audio>
+<audio id="suspense" src="./audio/suspense rising.mp3" preload="auto"></audio>
+<audio id="punch" src="./audio/face punch sound effect.mp3" preload="auto"></audio>
+<body>
+    <i id="volume-up" class="fas fa-volume-up"></i>
+    <i id="volume-off" class="fas fa-volume-off"></i>
+    <div class="intro" id="startMusic">
+        <h1>stranger things <br> of <h1 class="red">whack the monsters</h1>
+        </h1>
+        <div class="description">
+            <p>One day, you find your best friend, Will's bike was lying down in the middle of nowhere. The chief said Will Byers was abducted by a creature from the Upside Down.</p>
+            <p>You need to kill all of the monsters to rescue your best friend. Good luck!</p>
+            <h2>Notice:</h2>
+            <p>1.Use your "mouse" or "number on your keyboard" to play the game</p>
+            <a class="btn" id="showGame" onclick="choose()">START</a>
+        </div>
+    </div>
+    <div class="chooseLevel">
+        <h1>Choose Level</h1>
+        <div class="level-btn">
+            <a onclick="countdownEasy()">Easy</a>
+            <a onclick="countdownNor()">Normal</a>
+            <a onclick="countdownHard()">Hard</a>
+        </div>
+        
+    </div>
+    <div id="gamemap" class="game-zone" onclick="animateCursor()">
+        <div class="board">
+            <h1>RIP<span class="score var">0</span></h1>
+            <h1>TIME<span class="time var">15</span></h1>
+            <h1>MISS<span class="miss var">0</span></h1>
+        </div>
+        <div id="count">4</div>
+        <div class="game">
+            <div class="hole hole1">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole2">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole3">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole4">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole5">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole6">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole7">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole8">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole9">
+                <div class="mole"></div>
+            </div>
+        </div>
+    </div>
+    <div class="result">    
+        <h1 id="result-title">You didn't kill all of the monsters<br>Will was killed</h1>
+        <hr>
+        <h2>do you want to play again?</h2>
+        <div class="restart">
+            <div><a id="easy" onclick="choose()">YES</a></div>
+            <div><a id="quit">QUIT</a></div>
+            
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+crossorigin="anonymous"></script>
+<script src="./scripts/game.js"></script>
+</body>
+</html>

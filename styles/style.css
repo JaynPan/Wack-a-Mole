@@ -1,0 +1,234 @@
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-image: url("../images/stranger_things_bikes.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; }
+
+html {
+  box-sizing: border-box;
+  font-size: 10px; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+.fas {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  width: 80px;
+  top: 3%;
+  right: 2%;
+  transition: 0.5s ease;
+  cursor: pointer; }
+
+.fas:hover {
+  color: #da3434; }
+
+#volume-off {
+  display: none; }
+
+.intro {
+  width: 80%;
+  padding: 100px 0;
+  margin: auto; }
+  .intro h1 {
+    font-family: 'Eater', cursive;
+    font-size: 60px;
+    font-weight: 100;
+    color: white;
+    display: inline; }
+  .intro .red {
+    color: #da3434; }
+  .intro .description {
+    color: white;
+    width: 50%;
+    margin-top: 50px; }
+    .intro .description p {
+      font-size: 26px; }
+    .intro .description h2 {
+      color: #da3434;
+      font-size: 30px; }
+    .intro .description a {
+      font-family: 'Eater', cursive;
+      font-size: 26px;
+      font-weight: 200;
+      text-decoration: none;
+      color: #da3434;
+      background-color: white;
+      padding: 0px 20px;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer; }
+
+.game-zone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(48, 48, 48, 0.5);
+  width: 800px;
+  height: auto;
+  padding: 50px;
+  margin: auto;
+  display: none;
+  border-radius: 20px;
+  cursor: url("../images/mallet.png"), pointer; }
+  .game-zone.clicked {
+    cursor: url("../images/mallet-click.png"), pointer; }
+  .game-zone .board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; }
+    .game-zone .board h1 {
+      color: white;
+      font-family: 'Eater', cursive;
+      text-align: center;
+      font-size: 4rem;
+      line-height: 1;
+      margin: 0; }
+  .game-zone .btn {
+    font-family: 'Eater', cursive;
+    font-size: 26px;
+    font-weight: 200;
+    text-decoration: none;
+    color: #da3434;
+    background-color: white;
+    padding: 0px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer; }
+  .game-zone .var {
+    padding: 0 3rem;
+    line-height: 1;
+    border-radius: 1rem; }
+  .game-zone .game {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto; }
+  .game-zone .hole {
+    flex: 1 0 33.33%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px; }
+  .game-zone .hole:after {
+    display: block;
+    background: url(../images/dirt.svg) bottom center no-repeat;
+    background-size: contain;
+    content: '';
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    z-index: 2;
+    bottom: -30px; }
+  .game-zone .mole {
+    background: url(../images/demogorgon.svg) bottom center no-repeat;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: top 3s; }
+  .game-zone .hole.up .mole {
+    top: 0; }
+  .game-zone #count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    font-family: 'Eater', cursive;
+    color: white;
+    z-index: 999; }
+
+.disabled {
+  pointer-events: none; }
+
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  background: url(../images/ele2-dark.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 30px;
+  color: white;
+  padding: 50px;
+  display: none; }
+  .result h1 {
+    color: white;
+    font-family: 'Eater', cursive;
+    font-weight: 200;
+    text-align: center;
+    font-size: 4rem;
+    line-height: 2;
+    margin: 0; }
+  .result p {
+    font-size: 40px; }
+  .result h2 {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    text-transform: capitalize; }
+  .result hr {
+    border: 2px solid red;
+    background-color: red;
+    width: 20%;
+    margin-top: 50px; }
+  .result .restart {
+    display: flex;
+    justify-content: center;
+    margin: 60px auto 50px; }
+    .result .restart a {
+      font-size: 24px;
+      font-family: arial;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 30px;
+      margin-right: 60px;
+      cursor: pointer; }
+    .result .restart #quit {
+      margin-right: 0; }
+
+.chooseLevel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  background-color: black;
+  margin: auto;
+  display: none; }
+  .chooseLevel h1 {
+    color: white;
+    font-family: 'Eater', cursive;
+    font-weight: 200;
+    text-align: center;
+    font-size: 4rem;
+    line-height: 2;
+    margin: 0; }
+  .chooseLevel .level-btn {
+    width: 100%;
+    margin: 50px auto;
+    text-align: center; }
+  .chooseLevel a {
+    font-size: 24px;
+    font-family: arial;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 30px;
+    margin-right: 60px;
+    cursor: pointer; }
+  .chooseLevel a:last-child {
+    margin-right: 0; }
+
+/*# sourceMappingURL=style.css.map */
